@@ -1,13 +1,15 @@
 
 // import PropTypes from 'prop-types';
 
-import Footer from "../../Shared/Footer";
+import Banner from "../Banner/Banner";
+
+
 
 const Home = () => {
     return (
         <div>
             <h1>this is home!</h1>
-            <Footer></Footer>
+            <Banner></Banner>
         </div>
     );
 };
