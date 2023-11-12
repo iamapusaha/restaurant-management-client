@@ -1,5 +1,6 @@
-import SectionTitle from "../../components/SectionTitle/SectionTitle";
-import menuImg from '../../assets/home/featured.jpg'
+
+import menuImg from '../../../../assets/home/featured.jpg'
+import SectionTitle from '../../../../components/SectionTitle/SectionTitle';
 import './FeatureMenu.css'
 const FeatureMenu = () => {
     return (
