@@ -13,7 +13,7 @@ const FeatureMenu = () => {
                 <div className="space-y-6">
                     <p className="text-2xl font-normal">March 20, 2023 <br /> WHERE CAN I GET SOME?</p>
                     <p className="text-xl font-normal">Lorem ipsum dolor sit amet consectetur adipisicing elit. Error voluptate facere, deserunt dolores maiores quod nobis quas quasi. Eaque repellat recusandae ad laudantium tempore consequatur consequuntur omnis ullam maxime tenetur.</p>
-                    <button className="btn btn-outline">Read More</button>
+                    <button className="btn btn-outline border-0 border-b-4">Read More</button>
                 </div>
             </div>
         </div>
