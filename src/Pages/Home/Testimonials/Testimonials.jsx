@@ -3,6 +3,7 @@ import SectionTitle from "../../../components/SectionTitle/SectionTitle";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 import { Rating } from '@smastrom/react-rating'
+import { FaQuoteLeft } from "react-icons/fa";
 
 import '@smastrom/react-rating/style.css'
 
@@ -32,6 +33,7 @@ const Testimonials = () => {
                                     value={item.rating}
                                     readOnly
                                 />
+                                <FaQuoteLeft className="font-extrabold text-8xl"></FaQuoteLeft>
                                 <p>{item.details}</p>
                                 <h2 className="text-3xl font-medium uppercase text-[#CD9003]">{item.name}</h2>
                             </div>
