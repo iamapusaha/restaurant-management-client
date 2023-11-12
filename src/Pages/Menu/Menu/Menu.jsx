@@ -10,6 +10,7 @@ import MenuCategory from "../MenuCategory/MenuCategory";
 import dessertImg from '../../../assets/menu/dessert-bg.jpeg'
 import pizzaImg from '../../../assets/menu/pizza-bg.jpg'
 import saladImg from '../../../assets/menu/salad-bg.jpg'
+import soupImg from '../../../assets/menu/soup-bg.jpg'
 
 
 const Menu = () => {
@@ -18,6 +19,8 @@ const Menu = () => {
     const desserts = menu.filter(item => item.category === 'dessert')
     const pizza = menu.filter(item => item.category === 'pizza')
     const salad = menu.filter(item => item.category === 'salad')
+    const soups = menu.filter(item => item.category === 'soup')
+
 
 
     return (
@@ -36,6 +39,8 @@ const Menu = () => {
 
             {/* SALADS */}
             <MenuCategory item={salad} img={saladImg} title={'salads'} subTitle={'Lorem Ipsum has been the industry’s standard dummy text ever since the'}></MenuCategory>
+            {/* SOUPS */}
+            <MenuCategory item={soups} img={soupImg} title={'soups'} subTitle={'Lorem Ipsum has been the industry’s standard dummy text ever since the'}></MenuCategory>
         </div >
     );
 };
