@@ -8,12 +8,15 @@ import useMenu from "../../../hooks/useMenu";
 import SectionTitle from "../../../components/SectionTitle/SectionTitle";
 import MenuCategory from "../MenuCategory/MenuCategory";
 import dessertImg from '../../../assets/menu/dessert-bg.jpeg'
+import pizzaImg from '../../../assets/menu/pizza-bg.jpg'
 
 
 const Menu = () => {
     const [menu] = useMenu()
     const offered = menu.filter(item => item.category === 'offered')
     const desserts = menu.filter(item => item.category === 'dessert')
+    const pizza = menu.filter(item => item.category === 'pizza')
+
     return (
         <div>
             <Helmet>
@@ -25,6 +28,8 @@ const Menu = () => {
             <MenuCategory item={offered}></MenuCategory>
             {/* DESSERTS */}
             <MenuCategory item={desserts} img={dessertImg} title={'desserts'} subTitle={'Lorem Ipsum has been the industry’s standard dummy text ever since the'}></MenuCategory>
+            {/* PIZZA */}
+            <MenuCategory item={pizza} img={pizzaImg} title={'pizza'} subTitle={'Lorem Ipsum has been the industry’s standard dummy text ever since the'}></MenuCategory>
         </div >
     );
 };
