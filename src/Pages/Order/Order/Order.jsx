@@ -6,6 +6,7 @@ import { useState } from 'react';
 import useMenu from '../../../hooks/useMenu';
 import OrderTab from '../OrderTab/OrderTab';
 import { useParams } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 
 const Order = () => {
     const categories = ['salads', 'pizza', 'soups', 'desserts', 'drinks']
@@ -22,7 +23,11 @@ const Order = () => {
     const soups = menu.filter(item => item.category === 'soup')
 
     return (
+
         <div className='my-7'>
+            <Helmet>
+                <title>Bistro Boss || Order Food</title>
+            </Helmet>
             <Cover img={orderCover} title={'OUR SHOP'} subTitle={'Would you like to try a dish?'}></Cover>
             <Tabs className='my-5' selectedIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
                 <TabList>
