@@ -4,13 +4,12 @@ import Cover from "../../Shared/Cover/Cover";
 import orderCover from '../../../assets/shop/banner2.jpg'
 import { useState } from 'react';
 import useMenu from '../../../hooks/useMenu';
-import FoodCard from '../../../components/SectionTitle/FoodCard/FoodCard';
 import OrderTab from '../OrderTab/OrderTab';
 
 const Order = () => {
     const [menu] = useMenu()
     const [tabIndex, setTabIndex] = useState(0);
-    const offered = menu.filter(item => item.category === 'offered')
+    const drinks = menu.filter(item => item.category === 'drinks')
     const desserts = menu.filter(item => item.category === 'dessert')
     const pizza = menu.filter(item => item.category === 'pizza')
     const salad = menu.filter(item => item.category === 'salad')
@@ -38,6 +37,9 @@ const Order = () => {
                 </TabPanel>
                 <TabPanel>
                     <OrderTab items={desserts}></OrderTab>
+                </TabPanel>
+                <TabPanel>
+                    <OrderTab items={drinks}></OrderTab>
                 </TabPanel>
             </Tabs>
         </div>
