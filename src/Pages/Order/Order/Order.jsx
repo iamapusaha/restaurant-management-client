@@ -17,7 +17,7 @@ const Order = () => {
     const [tabIndex, setTabIndex] = useState(initialIndex);
     const drinks = menu.filter(item => item.category === 'drinks')
     const desserts = menu.filter(item => item.category === 'dessert')
-    const pizza = menu.filter(item => item.category === 'pizza')
+    const pizzas = menu.filter(item => item.category === 'pizza')
     const salad = menu.filter(item => item.category === 'salad')
     const soups = menu.filter(item => item.category === 'soup')
 
@@ -36,7 +36,7 @@ const Order = () => {
                     <OrderTab items={salad}></OrderTab>
                 </TabPanel>
                 <TabPanel>
-                    <OrderTab items={pizza}></OrderTab>
+                    <OrderTab items={pizzas}></OrderTab>
                 </TabPanel>
                 <TabPanel>
                     <OrderTab items={soups}></OrderTab>
