@@ -8,7 +8,7 @@ import OrderTab from '../OrderTab/OrderTab';
 import { useParams } from 'react-router-dom';
 
 const Order = () => {
-    const categories = ['salad', 'pizza', 'soups', 'desserts', 'drinks']
+    const categories = ['salads', 'pizza', 'soups', 'desserts', 'drinks']
     const { category } = useParams()
     const initialIndex = categories.indexOf(category)
     const [menu] = useMenu()
@@ -26,8 +26,8 @@ const Order = () => {
             <Cover img={orderCover} title={'OUR SHOP'} subTitle={'Would you like to try a dish?'}></Cover>
             <Tabs className='my-5' selectedIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
                 <TabList>
-                    <Tab>salad</Tab>
-                    <Tab>pizza</Tab>
+                    <Tab>salads</Tab>
+                    <Tab>pizzas</Tab>
                     <Tab>soups</Tab>
                     <Tab>desserts</Tab>
                     <Tab>drinks</Tab>
