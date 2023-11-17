@@ -13,11 +13,11 @@ const AuthProvider = ({ children }) => {
     }
     const signIn = (email, password) => {
         setLoading(true)
-        signInWithEmailAndPassword(auth, email, password)
+        return signInWithEmailAndPassword(auth, email, password)
     }
     const logOut = () => {
         setLoading(true)
-        signOut(auth)
+        return signOut(auth)
     }
 
     useEffect(() => {
@@ -26,10 +26,11 @@ const AuthProvider = ({ children }) => {
             console.log('current user is now', currentUser);
             setLoading(false)
 
-            return () => {
-                return unsubscribe()
-            }
+
         })
+        return () => {
+            return unsubscribe()
+        }
     }, [auth])
 
     const authInfo = {
