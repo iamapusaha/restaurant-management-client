@@ -16,10 +16,6 @@ const NavBar = () => {
         <li><Link to='/'>Home</Link></li>
         <li><Link to='/menu'>Our Menu</Link></li>
         <li><Link to='/order/salads'>Order Food</Link></li>
-
-        {
-            user ? <><button onClick={handlelogOut} className="btn btn-ghost">Logout</button></> : <><li><Link to='/login'>Login</Link></li></>
-        }
     </>
 
     return (
@@ -41,7 +37,26 @@ const NavBar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <a className="btn">Button</a>
+                {
+                    user ? <div className="dropdown dropdown-end text-black">
+                        <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                            <div className="w-10 rounded-full">
+                                <img src={user.photoURL} />
+                            </div>
+                        </label>
+                        <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
+                            <li>
+                                <a className="justify-between">
+                                    Profile
+                                    <span className="badge">{user.displayName}</span>
+                                </a>
+                            </li>
+                            <li><a>Settings</a></li>
+                            <li><button onClick={handlelogOut}>Logout</button></li>
+                        </ul>
+                    </div>
+                        : <button className="btn btn-ghost"><Link to='/login'>Login</Link></button>
+                }
             </div>
         </div>
     );
