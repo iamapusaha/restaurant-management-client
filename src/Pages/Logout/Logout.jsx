@@ -1,76 +1,47 @@
-import { createBrowserRouter } from 'react-router-dom';
-import App from '../App';
-import About from '../page/About';
-import Contact from '../page/Contact';
-import Login from '../page/Login';
-import Register from '../page/Register';
-import AdminLayout from '../components/layout/AdminLayout';
-import AddService from '../page/AddService';
-import Home from '../page/Home';
-import Profile from '../page/Profile';
-import TrackOrder from '../page/TrackOrder';
-import Services from '../page/Services';
-import Booking from '../page/Booking';
+import { useForm } from "react-hook-form";
 
-const routes = createBrowserRouter([
-    {
-        path: '/',
-        element: <App />,
-        children: [
-            {
-                index: true,
-                element: <Home />,
-            },
-            {
-                path: 'about',
-                element: <About />,
-            },
-            {
-                path: 'contact',
-                element: <Contact />,
-            },
-            {
-                path: 'services',
-                element: <Services />,
-            },
-            {
-                path: 'booking',
-                element: <Booking />,
-            },
-        ],
-    },
-    {
-        path: '/login',
-        element: <Login />,
-    },
-    {
-        path: '/register',
-        element: <Register />,
-    },
-    {
-        path: '/user',
-        element: <App />,
-        children: [
-            {
-                index: true,
-                element: <Profile />,
-            },
-            {
-                path: 'orders',
-                element: <TrackOrder />,
-            },
-        ],
-    },
-    {
-        path: '/admin',
-        element: <AdminLayout />,
-        children: [
-            {
-                index: true,
-                element: <AddService />,
-            },
-        ],
-    },
-]);
 
-export default routes;
+const Logout = () => {
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+    } = useForm()
+    const onSubmit = (data) => console.log(data)
+    return (
+        <div className="hero min-h-screen bg-base-200">
+            <div className="hero-content flex-col lg:flex-row">
+                <div className="text-center lg:text-left">
+                    <h1 className="text-5xl font-bold">Login now!</h1>
+                    <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
+                </div>
+                <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+                    <form onSubmit={handleSubmit(onSubmit)} className="card-body">
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">Email</span>
+                            </label>
+                            <input type="email" {...register("email", { required: true })} name="email" placeholder="email" className="input input-bordered" />
+                            {errors.email && <span className="text-error">This field is required</span>}
+                        </div>
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">Password</span>
+                            </label>
+                            <input type="password" {...register("password", { required: true })} name="password" placeholder="password" className="input input-bordered" />
+                            {errors.password && <span className="text-error">This field is required</span>}
+                            <label className="label">
+                                <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
+                            </label>
+                        </div>
+                        <div className="form-control mt-6">
+                            <input className="btn btn-primary" type="submit" value="Submit" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    );
+};
+
+export default Logout;
