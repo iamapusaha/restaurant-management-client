@@ -1,7 +1,6 @@
 import { useForm } from "react-hook-form";
 
-
-const Logout = () => {
+const SignUp = () => {
     const {
         register,
         handleSubmit,
@@ -35,7 +34,7 @@ const Logout = () => {
                             </label>
                         </div>
                         <div className="form-control mt-6">
-                            <input className="btn btn-primary" type="submit" value="Submit" />
+                            <input className="btn btn-primary" type="submit" value="Sign Up" />
                         </div>
                     </form>
                 </div>
@@ -44,4 +43,4 @@ const Logout = () => {
     );
 };
 
-export default Logout;
+export default SignUp;
