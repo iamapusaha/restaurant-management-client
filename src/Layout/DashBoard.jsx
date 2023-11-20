@@ -1,5 +1,5 @@
 import { NavLink, Outlet } from "react-router-dom";
-import { FaAd, FaBook, FaCalculator, FaCartArrowDown, FaCcMastercard, FaHome } from 'react-icons/fa';
+import { FaAd, FaBook, FaCalculator, FaCartArrowDown, FaCcMastercard, FaHome, FaSearch } from 'react-icons/fa';
 
 const DashBoard = () => {
     return (
@@ -30,10 +30,18 @@ const DashBoard = () => {
                         <FaBook></FaBook>
                         my booking
                     </NavLink></li>
-
+                    <div className="divider"></div>
+                    <li className="mb-3"><NavLink to='/'>
+                        <FaHome></FaHome>
+                        home
+                    </NavLink></li>
+                    <li className="mb-3"><NavLink to='/order/salads'>
+                        <FaSearch></FaSearch>
+                        menu
+                    </NavLink></li>
                 </ul>
             </div>
-            <div>
+            <div className="flex-1">
                 <Outlet></Outlet>
             </div>
         </div>

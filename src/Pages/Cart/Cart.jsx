@@ -1,12 +1,10 @@
+import SectionTitle from "../../components/SectionTitle/SectionTitle";
 
 
 const Cart = () => {
     return (
         <div>
-            <h1 className="text-5xl ">this cart page</h1>
-            <button>
-                helllllllllllllllllllllllllllllllllllllllllllllll
-            </button>
+            <SectionTitle header='WANNA ADD MORE?' subHeader='My Cart'></SectionTitle>
         </div>
     );
 };
