@@ -3,8 +3,10 @@ import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
 import Swal from "sweetalert2";
+import useAxiousPublic from "../../hooks/useAxiousPublic";
 
 const SignUp = () => {
+    const axiosPublic = useAxiousPublic();
     const { createUser, updateUserProfile } = useContext(AuthContext);
     const navigate = useNavigate()
     const {
@@ -18,22 +20,32 @@ const SignUp = () => {
         const password = data.password;
         const name = data.name;
         const photo = data.photo;
-        console.log(email, password, name, photo);
+        // console.log(email, password, name, photo);
         createUser(email, password)
             .then(result => {
                 const user = result.user;
                 console.log(user);
                 updateUserProfile(name, photo)
                     .then(() => {
-                        Swal.fire({
-                            position: "top-end",
-                            icon: "success",
-                            title: "User profile updated",
-                            showConfirmButton: false,
-                            timer: 1500
-                        });
-                        reset();
-                        navigate('/')
+                        const userInfo = {
+                            name: name,
+                            email: email
+                        }
+                        axiosPublic.post('/users', userInfo)
+                            .then(res => {
+                                if (res.data.insertedId) {
+                                    Swal.fire({
+                                        position: "top-end",
+                                        icon: "success",
+                                        title: "User profile updated",
+                                        showConfirmButton: false,
+                                        timer: 1500
+                                    });
+                                    reset();
+                                    navigate('/')
+                                }
+                            })
+
                     })
                     .catch(error => {
                         console.log(error);
