@@ -3,6 +3,7 @@ import { loadCaptchaEnginge, LoadCanvasTemplate, validateCaptcha } from 'react-s
 import { AuthContext } from '../../Provider/AuthProvider';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2'
+import SocialLogin from '../../components/SocialLogin/SocialLogin';
 
 const Login = () => {
     const location = useLocation();
@@ -90,6 +91,8 @@ const Login = () => {
                         </div>
                     </form>
                     <p className="text-center mb-4">New here? <Link className="text-red-700 text-bold" to='/signup'>Create a New Account</Link></p>
+                    <div className="divider"></div>
+                    <SocialLogin></SocialLogin>
                 </div>
             </div>
         </div>
