@@ -1,26 +1,24 @@
 import { useQuery } from "@tanstack/react-query";
 import SectionTitle from "../../components/SectionTitle/SectionTitle";
-import useAxiousPublic from "../../hooks/useAxiousPublic";
+
 import { FaTrashAlt, FaUsers } from "react-icons/fa";
 import useAxiousSecure from "../../hooks/useAxiousSecure";
 import Swal from "sweetalert2";
 
 
 const AllUsers = () => {
-    const axiosPublic = useAxiousPublic();
+
     const axiosSecure = useAxiousSecure()
     const { data: users = [], refetch } = useQuery({
         queryKey: ['users'],
         queryFn: async () => {
-            const res = await axiosPublic.get('/users', {
-                headers: { Authorization: `Bearer ${localStorage.getItem('access-token')}` }
-            })
+            const res = await axiosSecure.get('/users')
             return res.data
         }
 
     })
     const handleMakeAdmin = user => {
-        axiosPublic.patch(`users/admin/${user._id}`)
+        axiosSecure.patch(`users/admin/${user._id}`)
             .then(res => {
                 if (res.data.modifiedCount > 0) {
                     Swal.fire({
