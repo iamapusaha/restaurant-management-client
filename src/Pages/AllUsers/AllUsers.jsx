@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import SectionTitle from "../../components/SectionTitle/SectionTitle";
 import useAxiousPublic from "../../hooks/useAxiousPublic";
-import { FaTrashAlt } from "react-icons/fa";
+import { FaTrashAlt, FaUsers } from "react-icons/fa";
 import useAxiousSecure from "../../hooks/useAxiousSecure";
 import Swal from "sweetalert2";
 
@@ -17,6 +17,22 @@ const AllUsers = () => {
         }
 
     })
+    const handleMakeAdmin = user => {
+        axiosPublic.patch(`users/admin/${user._id}`)
+            .then(res => {
+                if (res.data.modifiedCount > 0) {
+                    Swal.fire({
+                        position: "top-end",
+                        icon: "success",
+                        title: `${user.name} is now admin`,
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                    refetch()
+                }
+            })
+
+    }
     const handleDeleteUser = id => {
         Swal.fire({
             title: "Are you sure?",
@@ -67,7 +83,13 @@ const AllUsers = () => {
                                 <th>{idx + 1}</th>
                                 <td>{user.name}</td>
                                 <td>{user.email}</td>
-                                <td>Role</td>
+                                <td>
+                                    {user.role === 'admin' ? 'admin'
+                                        : <button onClick={() => handleMakeAdmin(user)} className="btn btn-ghost btn-lg">
+                                            <FaUsers></FaUsers>
+                                        </button>
+                                    }
+                                </td>
                                 <td>
                                     <button onClick={() => handleDeleteUser(user._id)} className="btn btn-ghost btn-lg">
                                         <FaTrashAlt></FaTrashAlt>
