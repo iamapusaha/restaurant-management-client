@@ -16,7 +16,7 @@ const DashBoard = () => {
                                 <FaHome></FaHome>
                                 Admin Home
                             </NavLink></li>
-                            <li className="mb-3"><NavLink to='/dashboard/addi-tems'>
+                            <li className="mb-3"><NavLink to='/dashboard/add-items'>
                                 <FaUtensils></FaUtensils>
                                 Add Items
                             </NavLink></li>
