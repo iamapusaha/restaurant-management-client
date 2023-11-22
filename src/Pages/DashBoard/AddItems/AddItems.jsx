@@ -1,11 +1,21 @@
 import { useForm } from "react-hook-form";
 import SectionTitle from "../../../components/SectionTitle/SectionTitle";
 import { FaUtensils } from "react-icons/fa";
+import useAxiousPublic from "../../../hooks/useAxiousPublic";
 
-
+const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
+const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`
 const AddItems = () => {
+    const axiousPublic = useAxiousPublic()
     const { register, handleSubmit } = useForm()
-    const onSubmit = (data) => console.log(data)
+    const onSubmit = async (data) => {
+        console.log(data)
+        const imgFile = { image: data.image[0] }
+        const res = await axiousPublic.post(image_hosting_api, imgFile, {
+            headers: { "Content-Type": 'multipart/form-data' }
+        })
+        console.log(res.data);
+    }
     return (
         <div>
             <SectionTitle subHeader={"What's new?"} header={'ADD AN ITEM'} ></SectionTitle>
