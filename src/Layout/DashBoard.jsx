@@ -2,9 +2,10 @@ import { NavLink, Outlet } from "react-router-dom";
 import { FaAd, FaBook, FaCalculator, FaCartArrowDown, FaCcMastercard, FaHome, FaList, FaShoppingBag, FaUsers, FaUtensils } from 'react-icons/fa';
 import { IoMdMenu } from "react-icons/io";
 import { IoMail } from "react-icons/io5";
+import UseAdmin from "../hooks/UseAdmin";
 
 const DashBoard = () => {
-    const isAdmin = true;
+    const [isAdmin] = UseAdmin();
     return (
         <div className="container mx-auto flex gap-10">
             <div className="w-72 h-screen bg-orange-400">
